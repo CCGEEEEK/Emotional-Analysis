@@ -1,0 +1,13 @@
+c:\users\cc\documents\visual studio 2013\Projects\EmoAns\EmoAns\bin\Debug\EmoAns.exe.config
+C:\Users\cc\Documents\Visual Studio 2013\Projects\EmoAns\EmoAns\bin\Debug\EmoAns.exe
+C:\Users\cc\Documents\Visual Studio 2013\Projects\EmoAns\EmoAns\bin\Debug\EmoAns.pdb
+C:\Users\cc\Documents\Visual Studio 2013\Projects\EmoAns\EmoAns\obj\Debug\MainWindow.baml
+C:\Users\cc\Documents\Visual Studio 2013\Projects\EmoAns\EmoAns\obj\Debug\MainWindow.g.cs
+C:\Users\cc\Documents\Visual Studio 2013\Projects\EmoAns\EmoAns\obj\Debug\App.g.cs
+C:\Users\cc\Documents\Visual Studio 2013\Projects\EmoAns\EmoAns\obj\Debug\EmoAns_MarkupCompile.cache
+C:\Users\cc\Documents\Visual Studio 2013\Projects\EmoAns\EmoAns\obj\Debug\EmoAns.g.resources
+C:\Users\cc\Documents\Visual Studio 2013\Projects\EmoAns\EmoAns\obj\Debug\EmoAns.Properties.Resources.resources
+C:\Users\cc\Documents\Visual Studio 2013\Projects\EmoAns\EmoAns\obj\Debug\EmoAns.csproj.GenerateResource.Cache
+C:\Users\cc\Documents\Visual Studio 2013\Projects\EmoAns\EmoAns\obj\Debug\EmoAns.exe
+C:\Users\cc\Documents\Visual Studio 2013\Projects\EmoAns\EmoAns\obj\Debug\EmoAns.pdb
+C:\Users\cc\Documents\Visual Studio 2013\Projects\EmoAns\EmoAns\obj\Debug\EmoAns.csprojResolveAssemblyReference.cache

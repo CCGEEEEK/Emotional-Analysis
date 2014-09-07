@@ -1,0 +1,146 @@
+﻿<Window x:Class="EmoAns.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="EmoAns情感分析系统" Height="500" Width="800">
+    <Window.Resources>
+        <Style TargetType="{x:Type TabItem}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TabItem}">
+                        <Grid>
+                            <Border 
+              Name="Border"
+              Background="LightBlue"
+              BorderBrush="Black" 
+              BorderThickness="1,1,1,1" 
+              CornerRadius="6,6,0,0" >
+                                <ContentPresenter x:Name="ContentSite"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                ContentSource="Header"
+                Margin="12,2,12,2"/>
+                            </Border>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter TargetName="Border" Property="Background" Value="Lightpink" />
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="False">
+                                <Setter TargetName="Border" Property="Background" Value="LightGray" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <TabControl>
+            <TabItem Header="词库管理" >
+                <Grid ShowGridLines="True">
+                    <Grid.RowDefinitions>
+
+                        <RowDefinition Height="436">
+                        </RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="200*">
+                        </ColumnDefinition>
+                        <ColumnDefinition Width="300*">
+                        </ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+
+                    <Label Content="数据库：" Margin="10,38,230,358"/>
+                    <ComboBox  Name="DBComboBox" Loaded="DBComboBox_Loaded" IsReadOnly="True" HorizontalAlignment="Left"  Margin="82,40,0,0" VerticalAlignment="Top" Width="120" Height="22" />
+                    <Button Name ="ConnButton" Content="连接" HorizontalAlignment="Left" Margin="230,40,0,0" VerticalAlignment="Top" Width="56" Height="22" Click="ConnButton_Click_1" />
+                    <Label Content="语料库：" HorizontalAlignment="Left" Margin="10,83,0,0" VerticalAlignment="Top" Height="26" Width="58"/>
+                    <ComboBox Name="TableComboBox" HorizontalAlignment="Left" Margin="82,87,0,0" VerticalAlignment="Top" Width="120" Height="22"/>
+                    <Button Name="ViewTable" Content="查看" HorizontalAlignment="Left" Margin="230,87,0,0" VerticalAlignment="Top" Width="56" Height="22" Click="ViewTable_Click"   />
+                    <Label Content="批量导入语料库：" HorizontalAlignment="Left" Margin="10,133,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.688,-1.827" Height="26" Width="118"/>
+                    <Button Content="打开文件" Name="openSourceBtn" HorizontalAlignment="Left" Margin="14,170,0,0" VerticalAlignment="Top" Width="76" Height="22" Click="openSourceBtn_Click"  />
+                    <TextBox Name="FileNameTextBox" IsReadOnly="True"  HorizontalAlignment="Left" Height="22" Margin="110,170,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="176"/>
+                    <Label Content="表名称：" HorizontalAlignment="Left" Margin="14,222,0,0" VerticalAlignment="Top" Width="76" Height="25"/>
+                    <ComboBox Name="TableComboBoxcopy" HorizontalAlignment="Left" Margin="110,222,0,0" VerticalAlignment="Top" Width="176" Height="22"/>
+                    <Button Name="FileAddBtn" Content="确定" HorizontalAlignment="Left" Margin="230,286,0,0" VerticalAlignment="Top" Width="56" Height="22" Click="FileAddBtn_Click"  />
+
+                    <Label Content="词库内容：" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.15,-0.519" Width="81" Height="26"/>
+                    <Label Content="模糊查找：" Grid.Column="1" HorizontalAlignment="Left" Margin="163,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.888,0.962" Width="72" Height="26"/>
+
+                    <TextBox Name="searchtextbox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="235,12,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="130"/>
+                    <DataGrid Grid.Column="1" Name="GTablecontent" ItemsSource="{Binding}" AutoGenerateColumns="True" HorizontalAlignment="Left" Margin="0,43,0,0" VerticalAlignment="Top" Height="298" Width="469"  />
+                  
+                    <Button Name="Deletebtn" Content="删除" Grid.Column="1" HorizontalAlignment="Left" Margin="366,363,0,0" VerticalAlignment="Top" Width="76" Height="20" Click="Deletebtn_Click"/>
+                    <Button Name="SearchBtn" Content="查询" Grid.Column="1" HorizontalAlignment="Left" Margin="386,12,0,0" VerticalAlignment="Top" Width="56" Click="SearchBtn_Click"/>
+
+                </Grid>
+            </TabItem >
+            <TabItem Header="算法管理" >
+                <Grid ShowGridLines="True">
+                    <Grid.RowDefinitions>
+                        <RowDefinition>
+                        </RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="200*">
+                        </ColumnDefinition>
+                        <ColumnDefinition Width="300*">
+                        </ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="新增算法：" Margin="10,38,230,360"/>
+                    <Button Content="打开文件" HorizontalAlignment="Left" Margin="10,81,0,0" VerticalAlignment="Top" Width="75"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="106,81,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="172"/>
+                    <Label Content="算法名称：" HorizontalAlignment="Left" Margin="10,130,0,0" VerticalAlignment="Top" Width="73"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="106,132,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="172"/>
+                    <Label Content="算法描述：" HorizontalAlignment="Left" Margin="10,184,0,0" VerticalAlignment="Top" Width="73"/>
+                    <TextBox HorizontalAlignment="Left" Height="151" Margin="106,190,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="172"/>
+                    <Button Content="确定" HorizontalAlignment="Left" Margin="215,359,0,0" VerticalAlignment="Top" Width="75"/>
+
+                    <Label Content="算法列表：" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.15,-0.519" Width="81" Height="26"/>
+                    <DataGrid Grid.Column="1" HorizontalAlignment="Left" Margin="0,43,0,0" VerticalAlignment="Top" Height="298" Width="469"/>
+                    <Button Content="删除算法" Grid.Column="1" HorizontalAlignment="Left" Margin="40,361,0,0" VerticalAlignment="Top" Width="76" Height="20"/>
+                    <Button Content="更新算法" Grid.Column="1" HorizontalAlignment="Left" Margin="197,361,0,0" VerticalAlignment="Top" Width="74" Height="20"/>
+
+                </Grid>
+            </TabItem >
+
+            <TabItem Header="情感分析">
+                <Grid ShowGridLines="True">
+                    <Grid.RowDefinitions>
+                        <RowDefinition>
+                        </RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="200*">
+                        </ColumnDefinition>
+                        <ColumnDefinition Width="300*">
+                        </ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="数据源导入：" Margin="10,38,211,360"/>
+                    <Button Content="打开文件" HorizontalAlignment="Left" Margin="10,81,0,0" VerticalAlignment="Top" Width="75"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="106,81,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="172"/>
+                    <Label Content="选择算法：" HorizontalAlignment="Left" Margin="12,164,0,0" VerticalAlignment="Top" Width="73"/>
+
+                    <Button Content="确定" HorizontalAlignment="Left" Margin="220,121,0,0" VerticalAlignment="Top" Width="58"/>
+
+                    <Label Content="情感分析结果：" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.15,-0.519" Width="81" Height="26"/>
+                    <DataGrid Grid.Column="1" HorizontalAlignment="Left" Margin="0,43,0,0" VerticalAlignment="Top" Height="393" Width="469"/>
+                    <Button Content="残词修正" Grid.Column="1" HorizontalAlignment="Left" Margin="257,12,0,0" VerticalAlignment="Top" Width="76" Height="20"/>
+                    <Button Content="导出" Grid.Column="1" HorizontalAlignment="Left" Margin="385,12,0,0" VerticalAlignment="Top" Width="74" Height="20"/>
+                    <ComboBox HorizontalAlignment="Left" Margin="106,168,0,0" VerticalAlignment="Top" Width="172"/>
+                    <Button Content="确定" HorizontalAlignment="Left" Margin="220,220,0,0" VerticalAlignment="Top" Width="58"/>
+                    <Label Content="可视化条件：" HorizontalAlignment="Left" Margin="12,262,0,0" VerticalAlignment="Top"/>
+                    <CheckBox Content="饼图" HorizontalAlignment="Left" Margin="20,308,0,0" VerticalAlignment="Top"/>
+                    <CheckBox Content="柱状图" HorizontalAlignment="Left" Margin="106,308,0,0" VerticalAlignment="Top"/>
+                    <CheckBox Content="详细分析结果" HorizontalAlignment="Left" Margin="189,308,0,0" VerticalAlignment="Top"/>
+                    <Button Content="开始分析" Name="DoBtn" HorizontalAlignment="Left" Margin="204,361,0,0" VerticalAlignment="Top" Width="74" Click="DoBtn_Click"/>
+
+                </Grid>
+
+            </TabItem>
+
+        </TabControl>
+
+    </Grid>
+
+</Window>
